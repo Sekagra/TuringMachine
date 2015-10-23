@@ -1,0 +1,34 @@
+﻿<Window x:Class="TuringMachine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:TuringMachine.Controls"
+        Title="Turing machine" Height="500" Width="750" Background="Gray">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <controls:Tape Grid.Row="0" Text="{Binding Path=CurrentMachine.Tape, Mode=TwoWay}" Position="{Binding Path=CurrentMachine.Position, Mode=TwoWay}" Blank="{Binding Path=CurrentMachine.Blank, Mode=TwoWay}" />
+        <Grid Grid.Row="1" Margin="0,2,0,7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <controls:InstructionEditor Grid.Column="0" Instructions="{Binding Path=CurrentMachine.Instructions, Mode=TwoWay}" Path="{Binding Path=LoadedFile.FullName, Mode=OneWay}" />
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" MaxHeight="150" />
+                </Grid.RowDefinitions>
+                <controls:Controller Grid.Row="0" Machine="{Binding Path=CurrentMachine, Mode=TwoWay}" />
+                <controls:Settings Grid.Row="2" Machine="{Binding Path=CurrentMachine, Mode=TwoWay}" Speed="{Binding Path=Speed, Mode=TwoWay}" />
+            </Grid>
+        </Grid>
+        <controls:Logger Grid.Row="3" Messages="{Binding Path=Messages, Mode=OneWay}" />
+    </Grid>
+</Window>
+
+    

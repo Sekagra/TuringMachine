@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<machine>
+  <text>0</text>
+  <blank>0</blank>
+  <position>0</position>
+  <state>0</state>
+  <instructions>
+    <instruction state="0" read="0" write="1" direction="2" newstate="1" />
+    <instruction state="1" read="0" write="1" direction="2" newstate="2" />
+    <instruction state="2" read="0" write="1" direction="2" newstate="3" />
+    <instruction state="3" read="0" write="1" direction="2" newstate="-1" />
+  </instructions>
+</machine>

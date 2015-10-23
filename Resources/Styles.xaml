@@ -1,0 +1,106 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="TextBox.Background" Value="LightGray" />
+        <Setter Property="TextBox.FontFamily" Value="Consolas" />
+    </Style>
+
+    <Style x:Key="TapeField" TargetType="TextBox">
+        <Setter Property="TextBox.Background" Value="LightGray" />
+        <Setter Property="TextBox.FontSize" Value="26" />
+        <Setter Property="TextBox.FontFamily" Value="Courier New" />
+        <Setter Property="TextBox.IsReadOnly" Value="True" />
+        <Setter Property="TextBox.Width" Value="25" />
+    </Style>
+
+    <Style x:Key="SelectedTapeField" TargetType="TextBox">
+        <Setter Property="TextBox.Background" Value="LightGray" />
+        <Setter Property="TextBox.FontSize" Value="26" />
+        <Setter Property="TextBox.FontFamily" Value="Courier New" />
+        <Setter Property="TextBox.IsReadOnly" Value="True" />
+        <Setter Property="TextBox.Width" Value="25" />
+        <Setter Property="TextBox.FontWeight" Value="Bold" />
+        <Setter Property="TextBox.BorderBrush" Value="Black" />
+        <Setter Property="TextBox.BorderThickness" Value="2" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+
+    <Style TargetType="{x:Type GroupBox}">
+        <Setter Property="GroupBox.BorderBrush" Value="Gray" />
+        <Setter Property="GroupBox.BorderThickness" Value="0.5" />
+        <Setter Property="GroupBox.Padding" Value="2" />
+    </Style>
+
+    <Style TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="DataGridColumnHeader.Foreground" Value="White" />
+        <Setter Property="DataGridColumnHeader.Height" Value="20" />
+        <Setter Property="DataGridColumnHeader.Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="Black" />
+                    <GradientStop Offset="1.0" Color="Gray" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="DataGridColumnHeader.HorizontalContentAlignment" Value="Center" />
+    </Style>      
+    
+    <Style TargetType="{x:Type DataGridRow}">
+        <Setter Property="DataGridRow.Height" Value="23" />
+    </Style>
+
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Button.OverridesDefaultStyle" Value="True" />
+        <Setter Property="Button.Foreground" Value="White" />
+        <Setter Property="Button.Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="Black" />
+                    <GradientStop Offset="1.0" Color="DarkGray" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Name="border" Background="{TemplateBinding Background}" BorderBrush="White" BorderThickness="1" CornerRadius="4" Padding="3">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Offset="0.0" Color="Gray" />
+                                        <GradientStop Offset="1.0" Color="DarkGray" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Offset="0.0" Color="DarkGray" />
+                                        <GradientStop Offset="1.0" Color="DarkGray" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                        </Trigger>
+                        <Trigger Property="Button.IsDefaulted" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                        </Trigger>
+                        <Trigger Property="Button.IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
